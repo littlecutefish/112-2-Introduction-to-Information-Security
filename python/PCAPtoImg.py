@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 # 指定PCAP文件夹和输出文件夹
-pcap_folder = r"C:\Users\User\Desktop\Malware\1clickdownload\2.VirusShare_2fcdac1ecf51ba3690b68a241c1aa740\output_pcap_files_sanitized"
-output_folder = r"C:\Users\User\Desktop\Malware\1clickdownload\2.VirusShare_2fcdac1ecf51ba3690b68a241c1aa740\output_images"
+pcap_folder = r"C:\Users\User\Desktop\Malware\1clickdownload\VirusShare_2fcdac1ecf51ba3690b68a241c1aa740"
+output_folder = r"C:\Users\User\Desktop\Malware\1clickdownload\Images"
 
 # 创建输出文件夹（如果不存在）
 if not os.path.exists(output_folder):
