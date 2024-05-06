@@ -6,15 +6,15 @@ hw for 112-2 Introduction to Information Security
 - 使用resnet訓練，使用5種病毒檔案類別
 缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
 
-Hw1: Static Malware
-|-- ResNet: train, predict pictures
-|   |-- datasets
-|   |-- 0_check_folder.py
-|   |-- 1_get_file_name.py
-|   |-- 2_read_file.py : 主要讀取檔案後轉成灰階影像
-|   |-- 3_change_file_name.py
-|   |-- 4_move_img_to_folder.py
-|   |-- 5_jpg_to_png.py
+- Hw1: Static Malware
+  - ResNet: train, predict pictures
+    - datasets
+    - 0_check_folder.py
+    - 1_get_file_name.py
+    - 2_read_file.py : 主要讀取檔案後轉成灰階影像
+    - 3_change_file_name.py
+    - 4_move_img_to_folder.py
+    - 5_jpg_to_png.py
 
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6ee8d081-bc37-47f9-ae07-5f34c0c02c7f)
 
