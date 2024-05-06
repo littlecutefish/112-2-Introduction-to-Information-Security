@@ -16,8 +16,6 @@ hw for 112-2 Introduction to Information Security
   - 4_move_img_to_folder.py
   - 5_jpg_to_png.py
 
-缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
-
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6ee8d081-bc37-47f9-ae07-5f34c0c02c7f)
 
 ---
@@ -34,8 +32,8 @@ TODO: 使用cuckoo腳本把report檔案抓下來後再train
 
 ---
 ### Hw2: Network Packet Analysis
-有成功使用腳本上傳病毒檔並下載pcap檔案
-使用resnet來訓練圖片檔，目前只使用4種資料來訓練
+有成功使用腳本上傳病毒檔並下載pcap檔案 \n
+使用resnet來訓練圖片檔，目前只使用4種資料來訓練 \n
 缺點: 準確率只有30多，還未思考如何優化訓練模型
 
 - Hw2_PCAP
