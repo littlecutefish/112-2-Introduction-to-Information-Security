@@ -6,15 +6,15 @@ hw for 112-2 Introduction to Information Security
 - 使用resnet訓練，使用5種病毒檔案類別
 缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
 
-### Hw1_Static
-- ResNet: train, predict pictures
-- datasets
-- 0_check_folder.py
-- 1_get_file_name.py
-- 2_read_file.py: 主要讀取檔案後轉成灰階影像
-- 3_change_file_name.py
-- 4_move_img_to_folder.py
-- 5_jpg_to_png.py
+- Hw1_Static
+  - ResNet: train, predict pictures
+  - datasets
+  - 0_check_folder.py
+  - 1_get_file_name.py
+  - 2_read_file.py: 主要讀取檔案後轉成灰階影像
+  - 3_change_file_name.py
+  - 4_move_img_to_folder.py
+  - 5_jpg_to_png.py
 
 缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
 
@@ -25,8 +25,9 @@ hw for 112-2 Introduction to Information Security
 剛好遇到電腦裝不起Cuckoo的問題，花了比較久的時間，因此只有把一個檔案的report拿來生成結果的圖片檔
 TODO: 使用cuckoo腳本把report檔案抓下來後再train
 
-- datasets
-- tools: 當時在摸索顏色對應表格的小工具
+- Midterm_Dynamic
+  - datasets
+  - tools: 當時在摸索顏色對應表格的小工具
   - color_mapping.xlsx: 顏色對應表格
   - json_to_excel.py: 把report的json檔案整理在excel上
   - ods_to_jpg.py: 把 excel/ods檔 轉成照片檔案
@@ -37,10 +38,11 @@ TODO: 使用cuckoo腳本把report檔案抓下來後再train
 使用resnet來訓練圖片檔，目前只使用4種資料來訓練
 缺點: 準確率只有30多，還未思考如何優化訓練模型
 
-- ResNet: train, predict pictures
-- datasets
-- split_dataset
-- tools: 一些py的小工具
+- Hw2_PCAP
+  - ResNet: train, predict pictures
+  - datasets
+  - split_dataset
+  - tools: 一些py的小工具
   - PCAP_process.py: 先處理PCAP檔案
   - PCAP_to_img.py: 把所有PCAP的小檔案轉成灰階圖
   - take_out_imgs.py: 移動檔案的小小工具(不重要)
