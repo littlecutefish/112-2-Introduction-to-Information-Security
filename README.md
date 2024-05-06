@@ -20,7 +20,7 @@ hw for 112-2 Introduction to Information Security
 
 ---
 ### Midterm: Dynamic Malware
-剛好遇到電腦裝不起Cuckoo的問題，花了比較久的時間，因此只有把一個檔案的report拿來生成結果的圖片檔
+* 剛好遇到電腦裝不起Cuckoo的問題，花了比較久的時間，因此只有把一個檔案的report拿來生成結果的圖片檔
 TODO: 使用cuckoo腳本把report檔案抓下來後再train
 
 - Midterm_Dynamic
@@ -32,8 +32,8 @@ TODO: 使用cuckoo腳本把report檔案抓下來後再train
 
 ---
 ### Hw2: Network Packet Analysis
-有成功使用腳本上傳病毒檔並下載pcap檔案 \n
-使用resnet來訓練圖片檔，目前只使用4種資料來訓練 \n
+1. 有成功使用腳本上傳病毒檔並下載pcap檔案
+2. 使用resnet來訓練圖片檔，目前只使用4種資料來訓練
 缺點: 準確率只有30多，還未思考如何優化訓練模型
 
 - Hw2_PCAP
