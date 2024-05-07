@@ -4,7 +4,7 @@ hw for 112-2 Introduction to Information Security
 ### Hw1: Static Malware
 摸索中，分成比較多檔案，步步執行
 
-- 使用resnet訓練，使用5種病毒檔案類別
+- 使用resnet訓練，使用4種病毒檔案類別
 
 缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
 
