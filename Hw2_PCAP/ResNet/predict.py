@@ -5,7 +5,7 @@ import torch
 from PIL import Image
 from torchvision import transforms
 
-from model import resnet34
+from model import resnet50
 
 
 def predict_images(test_dir, model, class_indict, device):
@@ -73,18 +73,18 @@ if __name__ == '__main__':
     ])
 
     # 載入類別字典
-    with open('class_indices.json', "r") as f:
+    with open(r"C:\Users\User\Desktop\Malware\Hw2_PCAP\ResNet\class_indices.json", "r") as f:
         class_indict = json.load(f)
 
     # 創建模型
-    model = resnet34(num_classes=len(class_indict)).to(device)
+    model = resnet50(num_classes=len(class_indict)).to(device)
 
     # 加載模型權重
-    weights_path = "resNet34-v1.pth"
+    weights_path = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\ResNet\resnet50-v1.pth"
     model.load_state_dict(torch.load(weights_path, map_location=device))
 
     # 測試數據集路徑
-    test_dir = r"C:\Users\User\Desktop\Malware\split_dataset\test"
+    test_dir = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\split_dataset_new\test"
 
     # 進行預測並計算準確率
     accuracy = predict_images(test_dir, model, class_indict, device)

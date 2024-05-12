@@ -8,7 +8,7 @@ import torch.optim as optim
 from torchvision import transforms, datasets
 from tqdm import tqdm
 
-from model import resnet34
+from model import resnet50
 
 
 def main():
@@ -32,8 +32,8 @@ def main():
         ])
     }
 
-    data_root = os.path.abspath(os.path.join(os.getcwd(), r"C:\Users\User\Desktop"))  # get data root path
-    image_path = os.path.join(data_root, "Malware", "split_dataset")  # flower data set path
+    data_root = os.path.abspath(os.path.join(os.getcwd(), r"C:\Users\User\Desktop\Malware"))  # get data root path
+    image_path = os.path.join(data_root, "Hw2_PCAP", "split_dataset_new")  # flower data set path
     assert os.path.exists(image_path), "{} path does not exist.".format(image_path)
     train_dataset = datasets.ImageFolder(root=os.path.join(image_path, "train"),
                                          transform=data_transform["train"])
@@ -43,11 +43,11 @@ def main():
     flower_list = train_dataset.class_to_idx
     cla_dict = dict((val, key) for key, val in flower_list.items())
     # write dict into json file
-    json_str = json.dumps(cla_dict, indent=4)
-    with open('class_indices.json', 'w') as json_file:
+    json_str = json.dumps(cla_dict, indent=5)
+    with open("class_indices.json", 'w') as json_file:
         json_file.write(json_str)
 
-    batch_size = 16
+    batch_size = 32
     nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 8])  # number of workers
     print('Using {} dataloader workers every process'.format(nw))
 
@@ -65,11 +65,11 @@ def main():
     print("using {} images for training, {} images for validation.".format(train_num,
                                                                            val_num))
     
-    net = resnet34()
+    net = resnet50()
     net.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
     # load pretrain weights
     # download url: https://download.pytorch.org/models/resnet34-333f7ec4.pth
-    model_weight_path = "./resnet34-pre.pth"
+    model_weight_path = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\ResNet\resnet50-pre.pth"
     assert os.path.exists(model_weight_path), "file {} does not exist.".format(model_weight_path)
     # 加载预训练模型并且把不需要的层去掉
     pre_state_dict = torch.load(model_weight_path)
@@ -85,7 +85,7 @@ def main():
 
     # change fc layer structure
     in_channel = net.fc.in_features
-    net.fc = nn.Linear(in_channel, 4)
+    net.fc = nn.Linear(in_channel, 5)
     net.to(device)
 
     # define loss function
@@ -95,9 +95,9 @@ def main():
     params = [p for p in net.parameters() if p.requires_grad]
     optimizer = optim.Adam(params, lr=0.0001)
 
-    epochs = 10
+    epochs = 3
     best_acc = 0.0
-    save_path = 'resnet34-v1.pth'
+    save_path = 'resnet50-v1.pth'
     train_steps = len(train_loader)
     for epoch in range(epochs):
         # train

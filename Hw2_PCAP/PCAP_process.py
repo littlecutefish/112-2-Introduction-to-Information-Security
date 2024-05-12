@@ -14,7 +14,7 @@ def process_pcap(input_pcap_file, output_folder):
     # 遍歷資料包並進行 IP 位址隨機化處理
     for packet in packets:
         # 檢查資料包是否包含 IP 層
-        if IP in packet:
+        if IP in packet and TCP in packet:
             # 隨機生成新的來源 IP 和目標 IP
             new_src_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
             new_dst_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
@@ -26,14 +26,14 @@ def process_pcap(input_pcap_file, output_folder):
             # 獲取 Flow 的關鍵訊息
             flow_key = (
                 packet[IP].src,
-                packet[TCP].sport if TCP in packet else (packet[UDP].sport if UDP in packet else None),
+                packet[TCP].sport,
                 packet[IP].dst,
-                packet[TCP].dport if TCP in packet else (packet[UDP].dport if UDP in packet else None),
-                'TCP' if TCP in packet else ('UDP' if UDP in packet else None)
+                packet[TCP].dport,
+                'TCP'
             )
 
             # 將資料包添加到相應 Flow 的列表中
-            if flow_key[1] is not None and flow_key[3] is not None and flow_key[4] is not None:
+            if flow_key[1] is not None and flow_key[3] is not None:
                 if flow_key not in flows:
                     flows[flow_key] = []
                 flows[flow_key].append(packet)
@@ -70,8 +70,9 @@ def process_pcap(input_pcap_file, output_folder):
     print(f"Deleted {duplicate_files} duplicate files.")
 
 
+
 # 遍歷指定目錄下的所有資料夾
-malware_folder = r"C:\Users\User\Desktop\Malware\adclicer"
+malware_folder = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\datasets\test"
 for folder_name in os.listdir(malware_folder):
     folder_path = os.path.join(malware_folder, folder_name)
 
@@ -83,7 +84,7 @@ for folder_name in os.listdir(malware_folder):
         # 檢查原始 PCAP 檔案是否存在
         if os.path.exists(input_pcap_file):
             # 構建輸出目錄
-            output_folder = os.path.join(folder_path, "output_pcap_files_sanitized")
+            output_folder = os.path.join(folder_path, "output_pcap_files")
 
             # 創建目標資料夾（如果不存在）
             if not os.path.exists(output_folder):

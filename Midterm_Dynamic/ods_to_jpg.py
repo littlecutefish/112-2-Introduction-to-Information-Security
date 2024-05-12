@@ -8,6 +8,7 @@ def generate_grid_image(excel_file_path):
     # 讀取 Excel 文件
     df = pd.read_excel(excel_file_path)
 
+    print(excel_file_path)
     # 取得 D1 和 D 的最後一個值
     D1 = df.loc[0, 'time']
     D_last = df.loc[len(df) - 1, 'time']
@@ -144,8 +145,8 @@ def generate_grid_image(excel_file_path):
 
 
 # 資料夾路徑
-folder_path = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\reports\adclicer"
-output_folder = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\datasets\adclicer"
+folder_path = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\reports_v2\reports\acda"
+output_folder = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\datasets\acda"
 
 # 獲取資料夾內所有Excel文件
 for file in os.listdir(folder_path):

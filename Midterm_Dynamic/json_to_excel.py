@@ -26,7 +26,7 @@ def extract_calls_data(data):
 
 
 # JSON檔案目錄路徑
-json_dir_path = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\reports\adclicer"
+json_dir_path = r"C:\Users\User\Desktop\Malware\Midterm_Dynamic\reports_v2\reports\4shared"
 
 # 檢查目錄是否存在
 if not os.path.exists(json_dir_path):

@@ -2,8 +2,8 @@ import os
 import shutil
 
 # 指定原始資料夾和目標資料夾
-source_folder = r"C:\Users\User\Desktop\Malware\adclicer\output_images"
-target_folder = r"C:\Users\User\Desktop\Malware\adclicer\output_images"
+source_folder = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\datasets\airinstaller\output_images"
+target_folder = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\datasets\all\airinstaller"
 
 # 遍歷原始資料夾中的每個資料夾
 for folder_name in os.listdir(source_folder):
