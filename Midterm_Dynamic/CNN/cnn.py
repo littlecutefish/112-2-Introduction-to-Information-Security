@@ -7,7 +7,7 @@ from torchvision.datasets import ImageFolder
 import json
 
 # 設定訓練參數
-batch_size = 16
+batch_size = 8
 learning_rate = 0.001
 num_epochs = 10
 
@@ -41,7 +41,7 @@ test_loader = DataLoader(test_data, batch_size=batch_size)
 
 # 定義CNN模型
 class CNN(nn.Module):
-    def __init__(self, num_classes=3):
+    def __init__(self, num_classes=5):
         super(CNN, self).__init__()
         self.conv1 = nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
@@ -92,7 +92,6 @@ for epoch in range(num_epochs):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
     val_accuracy = correct / total
-
     print('Epoch [{}/{}], Loss: {:.4f}, Validation Accuracy: {:.2f}%'
           .format(epoch + 1, num_epochs, running_loss / len(train_loader), val_accuracy * 100))
 

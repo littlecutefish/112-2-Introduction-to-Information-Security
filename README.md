@@ -4,7 +4,7 @@ hw for 112-2 Introduction to Information Security
 ### Hw1: Static Malware
 摸索中，分成比較多檔案，步步執行
 
-- 使用resnet訓練，使用4種病毒檔案類別
+- 使用resnet訓練，使用5種病毒檔案類別
 
 缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
 
@@ -22,9 +22,8 @@ hw for 112-2 Introduction to Information Security
 
 ---
 ### Midterm: Dynamic Malware
-剛好遇到電腦裝不起Cuckoo的問題，花了比較久的時間，因此只有把一個檔案的report拿來生成結果的圖片檔
 
-TODO: 使用cuckoo腳本把report檔案抓下來後再train
+TODO: training model 要再找好一點
 
 - Midterm_Dynamic
   - datasets
@@ -36,7 +35,7 @@ TODO: 使用cuckoo腳本把report檔案抓下來後再train
 ---
 ### Hw2: Network Packet Analysis
 1. 有成功使用腳本上傳病毒檔並下載pcap檔案
-2. 使用resnet來訓練圖片檔，目前只使用4種資料來訓練
+2. 使用resnet來訓練圖片檔，目前使用5種資料來訓練
 
 缺點: 準確率只有30多，還未思考如何優化訓練模型
 
