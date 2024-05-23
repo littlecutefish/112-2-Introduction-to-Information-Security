@@ -24,6 +24,7 @@ hw for 112-2 Introduction to Information Security
 ### Midterm: Dynamic Malware
 
 TODO: training model 要再找好一點
+缺點：datasets太少，所以無法訓練到準確率太高
 
 - Midterm_Dynamic
   - datasets
