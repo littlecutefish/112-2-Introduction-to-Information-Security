@@ -33,6 +33,8 @@ TODO: training model 要再找好一點
   - json_to_excel.py: 把report的json檔案整理在excel上
   - ods_to_jpg.py: 把 excel/ods檔 轉成照片檔案
 
+<img width="454" alt="截圖 2024-05-23 下午2 25 25" src="https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/9247c2f3-ce8b-48a1-9524-5d8d985faf2c">
+
 ---
 ### Hw2: Network Packet Analysis
 1. 有成功使用腳本上傳病毒檔並下載pcap檔案
