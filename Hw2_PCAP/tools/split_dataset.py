@@ -3,12 +3,12 @@ import random
 import shutil
 
 # 定義數據集根目錄
-dataset_root = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\datasets\all"
+dataset_root = r"C:\Users\User\Desktop\image"
 
 # 定義分割後的目錄
-train_dir = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\split_dataset\train"
-val_dir = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\split_dataset\val"
-test_dir = r"C:\Users\User\Desktop\Malware\Hw2_PCAP\split_dataset\test"
+train_dir = r"C:\Users\User\Desktop\split_image\train"
+val_dir = r"C:\Users\User\Desktop\split_image\val"
+test_dir = r"C:\Users\User\Desktop\split_image\test"
 
 # 定義分割比例
 train_ratio = 0.8
