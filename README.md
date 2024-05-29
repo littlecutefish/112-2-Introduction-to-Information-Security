@@ -52,8 +52,6 @@ TODO: training model 要再找好一點
 
 準確率提升:30 -> 48
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/8443986a-7617-44f8-9348-039d2f5748ce)
-![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/8443986a-7617-44f8-9348-039d2f5748ce)
-
 
 
 
