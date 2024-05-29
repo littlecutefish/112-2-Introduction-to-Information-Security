@@ -25,6 +25,8 @@ hw for 112-2 Introduction to Information Security
 
 TODO: training model 要再找好一點
 
+缺點：datasets太少，所以無法訓練到準確率太高
+
 - Midterm_Dynamic
   - datasets
   - tools: 當時在摸索顏色對應表格的小工具
@@ -32,15 +34,15 @@ TODO: training model 要再找好一點
   - json_to_excel.py: 把report的json檔案整理在excel上
   - ods_to_jpg.py: 把 excel/ods檔 轉成照片檔案
 
+<img width="454" alt="截圖 2024-05-23 下午2 25 25" src="https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/9247c2f3-ce8b-48a1-9524-5d8d985faf2c">
+
 ---
 ### Hw2: Network Packet Analysis
 1. 有成功使用腳本上傳病毒檔並下載pcap檔案
 2. 使用resnet來訓練圖片檔，目前使用5種資料來訓練
 
-缺點: 準確率只有30多，還未思考如何優化訓練模型
-
 - Hw2_PCAP
-  - ResNet: train, predict pictures
+  - cnn: train, predict pictures
   - datasets
   - split_dataset
   - tools: 一些py的小工具
@@ -48,5 +50,8 @@ TODO: training model 要再找好一點
   - PCAP_to_img.py: 把所有PCAP的小檔案轉成灰階圖
   - take_out_imgs.py: 移動檔案的小小工具(不重要)
 
-![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/64d44dd8-7d87-4327-b5d9-d889c295f346)
+準確率提升:30 -> 48
+![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/8443986a-7617-44f8-9348-039d2f5748ce)
+
+
 
