@@ -55,4 +55,16 @@ TODO: training model 要再找好一點
 
 ---
 ### Hw3: Federated Learning
+
+- 兩個檔案(一個有differential privacy, 一個沒有)
+
 使用colab以及五個datasets訓練
+
+Federated.ipynb:
+![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/d5041f29-12b5-4a8e-8933-3190e2ba325a)
+
+加入noise: 0.1後:
+![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6c6b84a4-d57e-47c1-96ca-413d00633fe3)
+
+
+
