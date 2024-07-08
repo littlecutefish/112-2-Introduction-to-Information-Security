@@ -60,11 +60,11 @@ TODO: training model 要再找好一點
 
 使用colab以及五個datasets訓練
 
-Federated.ipynb:
+Federated.ipynb:(accurancy:30-50)
 
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/9d3729dc-03a7-4fc9-8e32-c6e801292281)
 
-加入noise: 0.1後:
+加入noise: 0.1後:(accurancy:24左右)
 
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6c6b84a4-d57e-47c1-96ca-413d00633fe3m)
 
