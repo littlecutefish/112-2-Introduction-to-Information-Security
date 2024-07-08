@@ -64,9 +64,9 @@ Federated.ipynb:(accurancy:30-50)
 
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/9d3729dc-03a7-4fc9-8e32-c6e801292281)
 
-加入noise: 0.1後:(accurancy:24左右)
+加入noise: 0.1後:(accurancy:22-25左右)
 
-![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6c6b84a4-d57e-47c1-96ca-413d00633fe3m)
+![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/f1b596e0-fc46-4914-bbae-45b87bbfe5d7)
 
 
 
