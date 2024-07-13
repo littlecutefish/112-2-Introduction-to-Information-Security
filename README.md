@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/5d05a21d-643c-4651-a1b4-dacb3d6e7c42)# 112-2-Introduction-to-Information-Security
+# 112-2-Introduction-to-Information-Security
 hw for 112-2 Introduction to Information Security
 
 ### Hw1: Static Malware
