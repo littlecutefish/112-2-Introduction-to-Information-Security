@@ -74,5 +74,7 @@ Federated.ipynb:(accurancy:68)
 使用Hw1的資料集來處理圖片並擾亂預測
 
 epsilon = 0.1, accuracy = 25
+
 epsilon = 0.3, accuracy = 12.5
+
 epsilon = 0.5, accuracy = 0
