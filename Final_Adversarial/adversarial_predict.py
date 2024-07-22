@@ -7,6 +7,7 @@ from torchvision import transforms
 import matplotlib.pyplot as plt
 
 from model import resnet34
+from opacus import PrivacyEngine
 
 def fgsm_attack(image, epsilon, data_grad):
     # FGSM attack
@@ -24,14 +25,15 @@ def imshow(img, title=None):
         plt.title(title)
     plt.axis('off')
 
-def predict_images(test_dir, model, class_indict, device, epsilon):
+def predict_images(test_dir, model, class_indict, device, epsilon, optimizer):
     adver_correct = 0
-    adver_total = 0
     origin_correct = 0
-    origin_total = 0
+    dp_correct = 0
+    total = 0
 
     origin_results = []
     adver_results = []
+    dp_results = []
 
     # 遍歷測試數據集中的所有類別文件夾
     for class_name in os.listdir(test_dir):
@@ -74,8 +76,6 @@ def predict_images(test_dir, model, class_indict, device, epsilon):
             else:
                 origin_results.append(f"預測錯誤：{predicted_class}（真實類別為 '{true_class}'）")
 
-            origin_total += 1
-
             # 初始預測
             output = model(img)
             init_pred = output.max(1, keepdim=True)[1]
@@ -90,14 +90,6 @@ def predict_images(test_dir, model, class_indict, device, epsilon):
 
             # 生成對抗樣本
             perturbed_data = fgsm_attack(img, epsilon, data_grad)
-
-            # 顯示原始圖像和對抗樣本圖像
-            # plt.figure(figsize=(10, 5))
-            # plt.subplot(1, 2, 1)
-            # imshow(img, title='Original Image')
-            # plt.subplot(1, 2, 2)
-            # imshow(perturbed_data, title='Adversarial Image')
-            # plt.show()
 
             # 使用對抗樣本進行預測
             output = model(perturbed_data)
@@ -117,7 +109,25 @@ def predict_images(test_dir, model, class_indict, device, epsilon):
             else:
                 adver_results.append(f"預測錯誤：{predicted_class}（真實類別為 '{true_class}')")
 
-            adver_total += 1
+            # # 差分隐私防御
+            # model.train()
+            # optimizer.zero_grad()
+            # output = model(img)
+            # loss = torch.nn.CrossEntropyLoss()(output, torch.tensor([predict_cla], device=device))
+            # loss.backward()
+            # optimizer.step()
+            #
+            # output = model(img)
+            # predict = torch.softmax(output, dim=1)
+            # predict_cla = torch.argmax(predict, dim=1).item()
+            # predicted_class = class_indict[str(predict_cla)]
+            # if true_class == predicted_class:
+            #     dp_correct += 1
+            #     dp_results.append(f"預測正確：{predicted_class}")
+            # else:
+            #     dp_results.append(f"預測錯誤：{predicted_class}（真實類別為 '{true_class}')")
+            #
+            total += 1
 
     # 印出結果
     print("===== Original ======")
@@ -126,12 +136,17 @@ def predict_images(test_dir, model, class_indict, device, epsilon):
     print("===== Adversarial ======")
     for result in adver_results:
         print(result)
+    # print("===== Differential Privacy Defense ======")
+    # for result in dp_results:
+    #     print(result)
 
     # 計算準確率
-    origin_accuracy = origin_correct / origin_total * 100
-    adver_accuracy = adver_correct / adver_total * 100
+    origin_accuracy = origin_correct / total * 100
+    adver_accuracy = adver_correct / total * 100
+    # dp_accuracy = dp_correct / total * 100
     print("origin accuracy: ", origin_accuracy)
     print("adversarial accuracy: ", adver_accuracy)
+    # print("dp accuracy: ", dp_accuracy)
 
 if __name__ == '__main__':
     # 設置設備
@@ -147,21 +162,24 @@ if __name__ == '__main__':
     ])
 
     # 載入類別字典
-    with open(r"C:\Users\User\Desktop\Malware\Hw1_Static\ResNet\class_indices_split.json", "r") as f:
+    with open(r"C:\Users\User\Desktop\Malware\Final_Adversarial\class_indices_new.json", "r") as f:
         class_indict = json.load(f)
 
     # 創建模型
     model = resnet34(num_classes=len(class_indict)).to(device)
 
     # 加載模型權重
-    weights_path = r"C:\Users\User\Desktop\Malware\Hw1_Static\ResNet\resNet34_split.pth"
+    weights_path = r"C:\Users\User\Desktop\Malware\Final_Adversarial\resNet34_v5_no_attack.pth"
     model.load_state_dict(torch.load(weights_path, map_location=device))
 
+    # 初始化优化器
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+
     # 測試數據集路徑
-    test_dir = r"C:\Users\User\Desktop\Malware\Hw1_Static\datasets\test_split"
+    test_dir = r"C:\Users\User\Downloads\MalImg dataset\dataset_9010\dataset_9010\malimg_dataset\test"
 
     # 設定對抗攻擊的擾動大小
     epsilon = 0.1
 
     # 進行預測並計算準確率
-    predict_images(test_dir, model, class_indict, device, epsilon)
+    predict_images(test_dir, model, class_indict, device, epsilon, optimizer)
