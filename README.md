@@ -60,13 +60,21 @@ TODO: training model 要再找好一點
 
 使用colab以及五個datasets訓練
 
-Federated.ipynb:(accurancy:30-50)
+Federated.ipynb:(accurancy:68)
 
-![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/9d3729dc-03a7-4fc9-8e32-c6e801292281)
+![image](https://github.com/user-attachments/assets/4490e2a4-34d5-41b6-8b68-0751318da121)
 
 加入noise: 0.1後:(accurancy:22-25左右)
 
 ![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/f1b596e0-fc46-4914-bbae-45b87bbfe5d7)
 
+---
+### Final: Adversarial Attack
 
+使用Hw1的資料集來處理圖片並擾亂預測
 
+epsilon = 0.1, accuracy = 25
+
+epsilon = 0.3, accuracy = 12.5
+
+epsilon = 0.5, accuracy = 0
