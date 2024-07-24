@@ -17,23 +17,14 @@ def fgsm_attack(image, epsilon, data_grad):
     perturbed_image = torch.clamp(perturbed_image, 0, 1)
     return perturbed_image
 
-def imshow(img, title=None):
-    # Unnormalize and show the image
-    img = img.cpu().detach().numpy().squeeze()
-    plt.imshow(img, cmap='gray')
-    if title:
-        plt.title(title)
-    plt.axis('off')
 
-def predict_images(test_dir, model, class_indict, device, epsilon, optimizer):
+def predict_images(test_dir, model, class_indict, device, epsilon):
     adver_correct = 0
     origin_correct = 0
-    dp_correct = 0
     total = 0
 
     origin_results = []
     adver_results = []
-    dp_results = []
 
     # 遍歷測試數據集中的所有類別文件夾
     for class_name in os.listdir(test_dir):
@@ -109,24 +100,6 @@ def predict_images(test_dir, model, class_indict, device, epsilon, optimizer):
             else:
                 adver_results.append(f"預測錯誤：{predicted_class}（真實類別為 '{true_class}')")
 
-            # # 差分隐私防御
-            # model.train()
-            # optimizer.zero_grad()
-            # output = model(img)
-            # loss = torch.nn.CrossEntropyLoss()(output, torch.tensor([predict_cla], device=device))
-            # loss.backward()
-            # optimizer.step()
-            #
-            # output = model(img)
-            # predict = torch.softmax(output, dim=1)
-            # predict_cla = torch.argmax(predict, dim=1).item()
-            # predicted_class = class_indict[str(predict_cla)]
-            # if true_class == predicted_class:
-            #     dp_correct += 1
-            #     dp_results.append(f"預測正確：{predicted_class}")
-            # else:
-            #     dp_results.append(f"預測錯誤：{predicted_class}（真實類別為 '{true_class}')")
-            #
             total += 1
 
     # 印出結果
@@ -136,17 +109,13 @@ def predict_images(test_dir, model, class_indict, device, epsilon, optimizer):
     print("===== Adversarial ======")
     for result in adver_results:
         print(result)
-    # print("===== Differential Privacy Defense ======")
-    # for result in dp_results:
-    #     print(result)
+
 
     # 計算準確率
     origin_accuracy = origin_correct / total * 100
     adver_accuracy = adver_correct / total * 100
-    # dp_accuracy = dp_correct / total * 100
     print("origin accuracy: ", origin_accuracy)
     print("adversarial accuracy: ", adver_accuracy)
-    # print("dp accuracy: ", dp_accuracy)
 
 if __name__ == '__main__':
     # 設置設備
