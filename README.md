@@ -2,23 +2,23 @@
 hw for 112-2 Introduction to Information Security
 
 ### Hw1: Static Malware
-摸索中，分成比較多檔案，步步執行
+reference: https://medium.com/@vipinra79/image-classification-using-transfer-learning-with-inceptionv3-in-google-colab-d89c34ba438f
 
-- 使用resnet訓練，使用5種病毒檔案類別
+- 使用InceptionV3訓練，使用6種病毒檔案類別
 
-缺點: 檔案數過少，訓練資料少，準確率只有60~70多...
+結果: 準確率只有80多...
 
 - Hw1_Static
-  - ResNet: train, predict pictures
-  - datasets
   - 0_check_folder.py
   - 1_get_file_name.py
   - 2_read_file.py: 主要讀取檔案後轉成灰階影像
   - 3_change_file_name.py
   - 4_move_img_to_folder.py
   - 5_jpg_to_png.py
+  - cnn_train.ipynb
 
-![image](https://github.com/littlecutefish/112-2-Introduction-to-Information-Security/assets/90677074/6ee8d081-bc37-47f9-ae07-5f34c0c02c7f)
+![image](https://github.com/user-attachments/assets/dcb14754-7ef6-4a9c-acd6-e05c1978e371)
+
 
 ---
 ### Midterm: Dynamic Malware
