@@ -60,7 +60,9 @@ TODO: training model 要再找好一點
 ---
 ### Hw3: Federated Learning
 
-- 兩個檔案(一個有differential privacy, 一個沒有)
+- Hw3_Federated
+  - Federated.ipynb
+  - Federated_with_differential_privacy.ipynb: 有differential privacy
 
 使用colab以及五個datasets訓練
 
@@ -75,10 +77,16 @@ Federated.ipynb:(accurancy:68)
 ---
 ### Final: Adversarial Attack
 
-使用Hw1的資料集來處理圖片並擾亂預測
+TODO: 待加入dp
 
-epsilon = 0.1, accuracy = 25
+dataset: 使用Hw1的資料集來處理圖片並擾亂預測
 
-epsilon = 0.3, accuracy = 12.5
+- Final_Adversarial
+  - model.py
+  - train.py
+  - adversarial_predict.py
 
-epsilon = 0.5, accuracy = 0
+原本資料集的準確率為 86 %，加入adversarial attack後的準確率降為 3 %
+
+![image](https://github.com/user-attachments/assets/a95c36a9-922a-4af1-a906-57d8112f4012)
+
