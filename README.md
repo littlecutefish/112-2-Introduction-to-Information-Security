@@ -6,7 +6,7 @@ reference: https://medium.com/@vipinra79/image-classification-using-transfer-lea
 
 - 使用InceptionV3訓練，使用6種病毒檔案類別
 
-結果: 準確率只有80多...
+結果: 準確率大約74%
 
 - Hw1_Static
   - 0_check_folder.py
@@ -17,7 +17,11 @@ reference: https://medium.com/@vipinra79/image-classification-using-transfer-lea
   - 5_jpg_to_png.py
   - cnn_train.ipynb
 
-![image](https://github.com/user-attachments/assets/dcb14754-7ef6-4a9c-acd6-e05c1978e371)
+![image](https://github.com/user-attachments/assets/10be3bf8-6163-45db-b928-6524b95f0134)
+*藍色為training accuracy
+*紅色為val accuracy
+
+![image](https://github.com/user-attachments/assets/4b56b7a4-76f2-4476-9f53-237a66c486a2)
 
 
 ---
